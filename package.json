@@ -1,14 +1,14 @@
 {
-  "name": "gulp-po2json",
-  "version": "0.4.0",
+  "name": "@vslutov/gulp-po2json",
+  "version": "0.5.0",
   "description": "Gulp plugin to convert gettext .po files to JSON",
   "license": "MIT",
-  "repository": "gabegorelick/gulp-po2json",
+  "repository": "https://github.com/vslutov/gulp-po2json",
   "author": {
-    "name": "Gabe Gorelick"
+    "name": "Vladimir Lutov"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=9.8.0"
   },
   "scripts": {
     "test": "mocha"
@@ -23,13 +23,15 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "gulp-util": "~2.2.14",
-    "through2": "~0.4.1",
-    "po2json": "~0.4.1",
-    "lodash": "~2.4.1"
+    "plugin-error": "^1.0.1",
+    "through2": "^2.0.3"
   },
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "chai": "~1.9.0"
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "vinyl": "^2.1.0"
+  },
+  "peerDependencies": {
+    "po2json": "^0.4.5"
   }
 }
