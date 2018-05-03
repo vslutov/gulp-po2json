@@ -1,31 +1,41 @@
-var PluginError = require('plugin-error')
-var through = require('through2')
-var po2json = require('po2json')
-var path = require('path')
+const PluginError = require("plugin-error")
+const through = require("through2")
+const po2json = require("po2json")
+const path = require("path")
+const Vinyl = require("vinyl")
 
-var pluginName = 'gulp-po2json'
+const pluginName = "gulp-po2json"
 
-module.exports = function (config) {
+module.exports = (config) => {
   config = Object.assign({
-    stringify: true
+    stringify: true,
+    format: "jed1.x",
   }, config)
 
   return through.obj(function (file, enc, cb) {
+    const { contents } = file
+
     if (file.isNull()) {
       this.push(file)
       return cb()
     }
 
     if (file.isStream()) {
-      this.emit('error', new PluginError(pluginName, 'Streaming not supported'))
+      this.emit("error", new PluginError(pluginName, 'Streaming not supported'))
       return cb()
     }
 
-    file.contents = Buffer.from(po2json.parse(file.contents, config), 'utf8')
+    // Update to last vinyl version
+    file = new Vinyl({
+      cwd: file.cwd,
+      base: file.base,
+      path: file.path,
+    })
+    file.extname = ".json"
 
-    var dirname = path.dirname(file.path)
-    var basename = path.basename(file.path, '.po')
-    file.path = path.join(dirname, basename + '.json')
+    const domain = file.stem
+    const output_contents = po2json.parse(contents, Object.assign({}, config, {domain}), "utf8")
+    file.contents = Buffer.from(output_contents)
 
     this.push(file)
     cb()
