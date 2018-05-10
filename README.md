@@ -1,20 +1,20 @@
-# [gulp](http://gulpjs.com)-po2json
+# @vslutov/[gulp](http://gulpjs.com)-po2json
 
 > Convert .po files to JSON using [po2json](https://github.com/mikeedwards/po2json)
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-po2json)
+Install with [npm](https://npmjs.org/package/@vslutov/gulp-po2json)
 
 ```
-npm install --save-dev gulp-po2json
+npm install --save-dev @vslutov/gulp-po2json po2json
 ```
 
 ## Examples
 
 ```
 var gulp = require('gulp');
-var po2json = require('gulp-po2json');
+var po2json = require('@vslutov/gulp-po2json');
 
 gulp.task('po2json', function () {
     return gulp.src(['po/**/*.po'])
