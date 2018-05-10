@@ -14,9 +14,9 @@ npm install --save-dev @vslutov/gulp-po2json po2json
 
 ## Examples
 
-```
-var gulp = require('gulp');
-var po2json = require('@vslutov/gulp-po2json');
+```js
+const gulp = require('gulp');
+const po2json = require('@vslutov/gulp-po2json');
 
 gulp.task('po2json', function () {
     return gulp.src(['po/**/*.po'])
