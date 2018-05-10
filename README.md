@@ -2,6 +2,8 @@
 
 > Convert .po files to JSON using [po2json](https://github.com/mikeedwards/po2json)
 
+Fork of [gabegorelick/gulp-po2json](https://github.com/gabegorelick/gulp-po2json): update dependies
+
 ## Install
 
 Install with [npm](https://npmjs.org/package/@vslutov/gulp-po2json)
