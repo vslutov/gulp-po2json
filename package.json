@@ -1,6 +1,6 @@
 {
   "name": "@vslutov/gulp-po2json",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Gulp plugin to convert gettext .po files to JSON",
   "license": "MIT",
   "repository": "https://github.com/vslutov/gulp-po2json",
@@ -13,7 +13,7 @@
     "yarn": ">=1.5.1"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "eslint *.js 'test/**/*.js' && mocha"
   },
   "files": [
     "index.js"
